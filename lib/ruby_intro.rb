@@ -56,5 +56,46 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  def initialize (isbn, price)
+    @isbn = valid_isbn(isbn)
+    @price = valid_price(price)
+  end
+
+  def isbn
+    @isbn
+  end
+
+  def isbn=(isbn)
+    @isbn = valid_isbn(isbn)
+  end
+
+  def price
+    @price
+  end
+
+  def price=(price)
+    @price = valid_price(price)
+  end
+
+  def price_as_string
+    "$#{sprintf('%.2f', @price)}"
+  end
+
+  private
+  def valid_isbn(isbn)
+    if isbn == ''
+      raise ArgumentError, 'Blank ISBN Number'
+    else
+      return isbn
+    end
+  end
+
+  def valid_price(price)
+    if price < 1
+      raise ArgumentError, 'Price must be greater than 0.00'
+    else
+      return price
+    end
+  end
+
 end
