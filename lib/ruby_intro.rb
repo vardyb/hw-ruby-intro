@@ -47,10 +47,8 @@ end
 # binary number that is a multiple of 4. NOTE: be sure it returns false if the string is not a valid binary number! 
 # Run associated tests via: $ rspec -e '#binary_multiple_of_4?' spec/part2_spec.rb
 def binary_multiple_of_4? s
-  return false if s == ''
-  binary = s.to_s
-  return false unless binary !~ /[^10]/
-  binary.to_i(2) % 4 == 0
+  return false if /[^01]/.match(s) || s.empty?
+  s.to_i(2) % 4 == 0
 end
 
 # Part 3
