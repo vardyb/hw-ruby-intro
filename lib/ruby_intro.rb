@@ -29,16 +29,28 @@ end
 
 # Part 2
 
+# Define a method hello(name) that takes a string representing a name and returns the string "Hello, " 
+# concatenated with the name. Run associated tests via: $ rspec -e '#hello' spec/part2_spec.rb
 def hello(name)
-  # YOUR CODE HERE
+  "Hello, #{name}"
 end
 
+# Define a method starts_with_consonant?(s) that takes a string and returns true if it starts with a consonant 
+# and false otherwise. (For our purposes, a consonant is any letter other than A, E, I, O, U.) NOTE: be sure it 
+# works for both upper and lower case and for nonletters! 
+# Run associated tests via: $ rspec -e '#starts_with_consonant?' spec/part2_spec.rb
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  s =~ /^[^aeiouAEIOU\W]/
 end
 
+# Define a method binary_multiple_of_4?(s) that takes a string and returns true if the string represents a 
+# binary number that is a multiple of 4. NOTE: be sure it returns false if the string is not a valid binary number! 
+# Run associated tests via: $ rspec -e '#binary_multiple_of_4?' spec/part2_spec.rb
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  return false if s == ''
+  binary = s.to_s
+  return false unless binary !~ /[^10]/
+  binary.to_i(2) % 4 == 0
 end
 
 # Part 3
